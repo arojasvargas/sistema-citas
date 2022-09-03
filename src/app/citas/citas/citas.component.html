@@ -6,52 +6,83 @@
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
-                <label class="form-label" for="form6Example1">First name</label>
-                <input type="text" id="form6Example1" class="form-control" />
+                <label class="form-label" for="txtNombre">Nombre</label>
+                <input type="text" id="txtNombre" class="form-control" />
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
-                <label class="form-label" for="form6Example2">Last name</label>
-              <input type="text" id="form6Example2" class="form-control" />
+                <label class="form-label" for="txtApellidos">Apellidos</label>
+              <input type="text" id="txtApellidos" class="form-control" />
               
             </div>
           </div>
         </div>
-      
-        <!-- Text input -->
-        <div class="form-outline mb-4">
-            <label class="form-label" for="form6Example3">Company name</label>
-          <input type="text" id="form6Example3" class="form-control" />
-          
-        </div>
-      
-        <!-- Text input -->
-        <div class="form-outline mb-4">
-            
-          <label class="form-label" for="form6Example4">Address</label>
-          <input type="text" id="form6Example4" class="form-control" />
-        </div>
-      
+
         <!-- Email input -->
         <div class="form-outline mb-4">
             
-          <label class="form-label" for="form6Example5">Email</label>
-          <input type="email" id="form6Example5" class="form-control" />
+          <label class="form-label" for="txtEmail">Correo electrónico</label>
+          <input type="email" id="txtEmail" class="form-control" />
         </div>
       
         <!-- Number input -->
         <div class="form-outline mb-4">
             
-          <label class="form-label" for="form6Example6">Phone</label>
-          <input type="number" id="form6Example6" class="form-control" />
+          <label class="form-label" for="txtTelefono">Número de teléfono</label>
+          <input type="text" id="txtTelefono" class="form-control" />
+        </div>
+
+        <!-- Select Barbero -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="selectBarbero">Seleccione un barbero:</label>
+          <select class="form-select" id="selectBarbero" aria-label="Default select example">
+            <option selected disabled>Abra este menú</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+
+        <!-- Select Servicios -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="selectServicio">Seleccione uno o más servicios:</label>
+          <ul class="list-group" id="selectServicio">
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
+              <label class="form-check-label" for="firstCheckbox">First checkbox</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckbox">
+              <label class="form-check-label" for="secondCheckbox">Second checkbox</label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckbox">
+              <label class="form-check-label" for="thirdCheckbox">Third checkbox</label>
+            </li>
+          </ul>
         </div>
       
+        <!-- Fecha input -->
+        <div class="row mb-4">
+          <div class="col">
+            <div class="form-outline">
+              <label class="form-label" for="txtFecha">Fecha</label>
+              <input type="date" id="txtFecha" class="form-control" />
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-outline">
+              <label class="form-label" for="txtHora">Hora</label>
+              <input type="time" id="txtHora" class="form-control" />
+            </div>
+          </div>
+        </div>    
+              
         <!-- Message input -->
         <div class="form-outline mb-4">
-            
-          <label class="form-label" for="form6Example7">Additional information</label>
-          <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+          <label class="form-label" for="txtComentarios">Comentarios adicionales</label>
+          <textarea class="form-control" id="txtComentarios" rows="4"></textarea>
         </div>
       
         <!-- Checkbox -->
@@ -61,7 +92,6 @@
         </div> -->
       
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
+        <button type="submit" class="btn btn-primary btn-block mb-4">Agendar Cita</button>
       </form>
 </div>
-
