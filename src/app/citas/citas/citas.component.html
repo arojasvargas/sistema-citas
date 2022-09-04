@@ -1,19 +1,25 @@
 
 <div class="container">
     <h1>Sección de citas</h1>
-    <form>
+
+    <app-citas-listado [data]="citasBD"></app-citas-listado>
+
+    <h3>
+      {{title}}
+    </h3>
+      <form (ngSubmit)="agregarCita()">
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
                 <label class="form-label" for="txtNombre">Nombre</label>
-                <input type="text" id="txtNombre" class="form-control" />
+                <input type="text" name="Nombre" id="txtNombre" class="form-control" [(ngModel)]="cita.nombre"/>
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
                 <label class="form-label" for="txtApellidos">Apellidos</label>
-              <input type="text" id="txtApellidos" class="form-control" />
+              <input type="text" name="Apellidos" id="txtApellidos" class="form-control" [(ngModel)]="cita.apellidos"/>
               
             </div>
           </div>
@@ -23,24 +29,24 @@
         <div class="form-outline mb-4">
             
           <label class="form-label" for="txtEmail">Correo electrónico</label>
-          <input type="email" id="txtEmail" class="form-control" />
+          <input type="email" name="Correo" id="txtEmail" class="form-control" [(ngModel)]="cita.email"/>
         </div>
       
         <!-- Number input -->
         <div class="form-outline mb-4">
             
           <label class="form-label" for="txtTelefono">Número de teléfono</label>
-          <input type="text" id="txtTelefono" class="form-control" />
+          <input type="text" name="Telefono" id="txtTelefono" class="form-control" [(ngModel)]="cita.telefono"/>
         </div>
 
         <!-- Select Barbero -->
         <div class="form-outline mb-4">
           <label class="form-label" for="selectBarbero">Seleccione un barbero:</label>
-          <select class="form-select" id="selectBarbero" aria-label="Default select example">
+          <select class="form-select" name="Barbero" id="selectBarbero" aria-label="Default select example" [(ngModel)]="cita.barbero">
             <option selected disabled>Abra este menú</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option value="Barbero 1">One</option>
+            <option value="Barbero 2">Two</option>
+            <option value="Barbero 3">Three</option>
           </select>
         </div>
 
@@ -49,15 +55,15 @@
           <label class="form-label" for="selectServicio">Seleccione uno o más servicios:</label>
           <ul class="list-group" id="selectServicio">
             <li class="list-group-item">
-              <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
+              <input class="form-check-input me-1" type="checkbox" value="Servicio 1" id="firstCheckbox">
               <label class="form-check-label" for="firstCheckbox">First checkbox</label>
             </li>
             <li class="list-group-item">
-              <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckbox">
+              <input class="form-check-input me-1" type="checkbox" value="Servicio 2" id="secondCheckbox">
               <label class="form-check-label" for="secondCheckbox">Second checkbox</label>
             </li>
             <li class="list-group-item">
-              <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckbox">
+              <input class="form-check-input me-1" type="checkbox" value="Servicio 3" id="thirdCheckbox">
               <label class="form-check-label" for="thirdCheckbox">Third checkbox</label>
             </li>
           </ul>
@@ -68,13 +74,13 @@
           <div class="col">
             <div class="form-outline">
               <label class="form-label" for="txtFecha">Fecha</label>
-              <input type="date" id="txtFecha" class="form-control" />
+              <input type="date" name="Fecha" id="txtFecha" class="form-control" [(ngModel)]="cita.fecha"/>
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
               <label class="form-label" for="txtHora">Hora</label>
-              <input type="time" id="txtHora" class="form-control" />
+              <input type="time" name="Hora" id="txtHora" class="form-control" [(ngModel)]="cita.hora"/>
             </div>
           </div>
         </div>    
@@ -82,7 +88,7 @@
         <!-- Message input -->
         <div class="form-outline mb-4">
           <label class="form-label" for="txtComentarios">Comentarios adicionales</label>
-          <textarea class="form-control" id="txtComentarios" rows="4"></textarea>
+          <textarea class="form-control" name="Comentarios" id="txtComentarios" rows="4" [(ngModel)]="cita.comentarios"></textarea>
         </div>
       
         <!-- Checkbox -->

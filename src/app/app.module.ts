@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AjustesModule } from './ajustes/ajustes.module';
 import { AppComponent } from './app.component';
 import { CitasModule } from './citas/citas.module';
 
@@ -10,7 +10,8 @@ import { CitasModule } from './citas/citas.module';
   ],
   imports: [
     BrowserModule,
-    CitasModule
+    CitasModule,
+    AjustesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
