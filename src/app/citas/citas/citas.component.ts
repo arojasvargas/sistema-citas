@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CitasInterface } from '../interfaces/citas.interface';
+import { CitasBDService } from '../services/citas-bd.service';
 
 @Component({
   selector: 'app-citas',
@@ -9,19 +10,9 @@ import { CitasInterface } from '../interfaces/citas.interface';
 
 export class CitasComponent { 
 
-  public citasBD : CitasInterface[] = [
-    {
-      nombre: "Alexander", 
-      apellidos : "Rojas Vargas",
-      email : "alexander@outlook.com",
-      telefono : "8855-6644",
-      barbero : "Alonso Aguilar",
-      servicios : ["Corte", "Depilacion"],
-      fecha : "2022-09-03",
-      hora : "6:00PM",
-      comentarios : ""
-    }
-  ]
+  constructor(public citasBDService : CitasBDService){
+
+  }
 
   cita : CitasInterface = {
     nombre: "", 
@@ -36,7 +27,7 @@ export class CitasComponent {
   }
 
   addCita = (cita: CitasInterface) => {
-    this.citasBD.push(cita)
+    this.citasBDService.citasBD.push(cita)
   }
 
   title : string = "Formulario para registro de citas"

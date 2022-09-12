@@ -1,26 +1,23 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">{{ title }}</h1>
+</div>
 
 <div class="container">
-    <h1>Sección de citas</h1>
-
-    <app-citas-listado [data]="citasBD"></app-citas-listado>
-
-    <h3>
-      {{title}}
-    </h3>
       <form (ngSubmit)="agregarCita()">
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
                 <label class="form-label" for="txtNombre">Nombre</label>
-                <input type="text" name="Nombre" id="txtNombre" class="form-control" [(ngModel)]="cita.nombre"/>
+                <!-- <input type="text" name="Nombre" id="txtNombre" class="form-control" [(ngModel)]="cita.nombre"/> -->
+                <input type="text" name="Nombre" id="txtNombre" class="form-control"/>
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
                 <label class="form-label" for="txtApellidos">Apellidos</label>
-              <input type="text" name="Apellidos" id="txtApellidos" class="form-control" [(ngModel)]="cita.apellidos"/>
-              
+              <!-- <input type="text" name="Apellidos" id="txtApellidos" class="form-control" [(ngModel)]="cita.apellidos"/> -->
+              <input type="text" name="Apellidos" id="txtApellidos" class="form-control" />
             </div>
           </div>
         </div>
@@ -29,21 +26,24 @@
         <div class="form-outline mb-4">
             
           <label class="form-label" for="txtEmail">Correo electrónico</label>
-          <input type="email" name="Correo" id="txtEmail" class="form-control" [(ngModel)]="cita.email"/>
+          <!-- <input type="email" name="Correo" id="txtEmail" class="form-control" [(ngModel)]="cita.email"/> -->
+          <input type="email" name="Correo" id="txtEmail" class="form-control"/>
         </div>
       
         <!-- Number input -->
         <div class="form-outline mb-4">
             
           <label class="form-label" for="txtTelefono">Número de teléfono</label>
-          <input type="text" name="Telefono" id="txtTelefono" class="form-control" [(ngModel)]="cita.telefono"/>
+          <!-- <input type="text" name="Telefono" id="txtTelefono" class="form-control" [(ngModel)]="cita.telefono"/> -->
+          <input type="text" name="Telefono" id="txtTelefono" class="form-control" />
         </div>
 
         <!-- Select Barbero -->
         <div class="form-outline mb-4">
           <label class="form-label" for="selectBarbero">Seleccione un barbero:</label>
-          <select class="form-select" name="Barbero" id="selectBarbero" aria-label="Default select example" [(ngModel)]="cita.barbero">
-            <option selected disabled>Abra este menú</option>
+          <!-- <select class="form-select" name="Barbero" id="selectBarbero" aria-label="Default select example" [(ngModel)]="cita.barbero"> -->
+          <select class="form-select" name="Barbero" id="selectBarbero" aria-label="Default select example">
+            <option [defaultSelected]="true" [disabled]="true">Abra este menú</option>
             <option value="Barbero 1">One</option>
             <option value="Barbero 2">Two</option>
             <option value="Barbero 3">Three</option>
@@ -74,13 +74,15 @@
           <div class="col">
             <div class="form-outline">
               <label class="form-label" for="txtFecha">Fecha</label>
-              <input type="date" name="Fecha" id="txtFecha" class="form-control" [(ngModel)]="cita.fecha"/>
+              <!-- <input type="date" name="Fecha" id="txtFecha" class="form-control" [(ngModel)]="cita.fecha"/> -->
+              <input type="date" name="Fecha" id="txtFecha" class="form-control" />
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
               <label class="form-label" for="txtHora">Hora</label>
-              <input type="time" name="Hora" id="txtHora" class="form-control" [(ngModel)]="cita.hora"/>
+              <!-- <input type="time" name="Hora" id="txtHora" class="form-control" [(ngModel)]="cita.hora"/> -->
+              <input type="time" name="Hora" id="txtHora" class="form-control" />
             </div>
           </div>
         </div>    
@@ -88,7 +90,8 @@
         <!-- Message input -->
         <div class="form-outline mb-4">
           <label class="form-label" for="txtComentarios">Comentarios adicionales</label>
-          <textarea class="form-control" name="Comentarios" id="txtComentarios" rows="4" [(ngModel)]="cita.comentarios"></textarea>
+          <!-- <textarea class="form-control" name="Comentarios" id="txtComentarios" rows="4" [(ngModel)]="cita.comentarios" ></textarea> -->
+          <textarea class="form-control" name="Comentarios" id="txtComentarios" rows="4" ></textarea>
         </div>
       
         <!-- Checkbox -->

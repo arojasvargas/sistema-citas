@@ -19,7 +19,7 @@
 
         <!-- Nav Item - Dashboard -->
           <li class="nav-item active">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" routerLink="/">
                   <i class="fas fa-fw fa-tachometer-alt"></i>
                   <span>Dashboard</span></a>
           </li>
@@ -38,7 +38,13 @@
                     <i class="fas fa-fw fa-calendar-check"></i>
                     <span>Citas</span>
                 </a>
+                <div class='bg-white py-2 collapse-inner rounded'>
+                    <h6 class="collapse-header">Componentes:</h6>
+                    <a class="collapse-item" routerLink="/registrarcita">Registrar nueva cita</a>
+                    <a class="collapse-item" routerLink="/listadocitas">Ver registro de citas</a>
+                </div>
             </li>
+
 
         <!-- Nav Item - Ajustes -->
             <li class="nav-item">
@@ -46,15 +52,16 @@
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Ajustes</span>
                 </a>
+                <div class='bg-white py-2 collapse-inner rounded'>
+                    <h6 class="collapse-header">Componentes:</h6>
+                    <a class="collapse-item" routerLink="#">Ajustar servicios</a>
+                    <a class="collapse-item" routerLink="#">Ajustar barberos</a>
+                </div>
             </li>
 
           <!-- Divider -->
           <hr class="sidebar-divider">
 
-          <!-- Heading -->
-          <!-- <div class="sidebar-heading">
-              Addons
-          </div> -->
           
       </ul>
       <!-- End of Sidebar -->
@@ -73,20 +80,6 @@
                       <i class="fa fa-bars"></i>
                   </button>
 
-                  <!-- Topbar Search -->
-                  <!-- <form
-                      class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                      <div class="input-group">
-                          <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                              aria-label="Search" aria-describedby="basic-addon2">
-                          <div class="input-group-append">
-                              <button class="btn btn-primary" type="button">
-                                  <i class="fas fa-search fa-sm"></i>
-                              </button>
-                          </div>
-                      </div>
-                  </form> -->
-
                   <!-- Topbar Navbar -->
                   <ul class="navbar-nav ml-auto">
 
@@ -97,27 +90,6 @@
                               <span class="mr-2 d-none d-lg-inline text-gray-600 small">Nombre Apellido</span>
                               <img class="img-profile rounded-circle" src="">
                           </a>
-                          <!-- Dropdown - User Information -->
-                          <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                              aria-labelledby="userDropdown">
-                              <a class="dropdown-item" href="#">
-                                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                  Profile
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                  Settings
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                  Activity Log
-                              </a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                  Logout
-                              </a>
-                          </div> -->
                       </li>
 
                   </ul>
@@ -129,10 +101,10 @@
               <div class="container-fluid">
 
                   <!-- Page Heading -->
-                  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                  <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
                       <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                  </div>
-                  <app-citas></app-citas>
+                  </div> -->
+                  <router-outlet></router-outlet>
               </div>
               <!-- /.container-fluid -->
 
@@ -179,38 +151,3 @@
           </div>
       </div>
   </div>
-
-
-
-<!-- <div id="sct-navbar">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-        Barberia R.V.
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Citas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Ajustes</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</div>
-
-<div id="sct-body">
-
-</div>
-<p>Nota: Eliminar el comentario de la siguiente linea para ver el modulo de citas</p>
-<app-citas></app-citas> -->

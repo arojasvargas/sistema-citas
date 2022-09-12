@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AjustesModule } from './ajustes/ajustes.module';
+import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
-import { CitasModule } from './citas/citas.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    CitasModule,
-    AjustesModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
