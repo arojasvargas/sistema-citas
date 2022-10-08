@@ -10,15 +10,12 @@ import { CitaService } from '../services/cita.service';
 export class CitasListadoComponent implements OnInit {
 
   nuevaListaCitas : CitasInterface[] = []
+  title : string = "Listado de citas"
 
   constructor( private citasService : CitaService ){  }
-
-
-  title : string = "Listado de citas"
-  headers = ["Nombre", "Apellidos", "Teléfono", "Barbero", "Servicios", "Fecha", "Hora"]
-
-  ngOnInit(): void {
-    this.citasService.getAll().subscribe( data => this.nuevaListaCitas = data )
+  
+   ngOnInit(): void {
+    this.citasService.findAll().subscribe( data => this.nuevaListaCitas = data )
   }
   
 }

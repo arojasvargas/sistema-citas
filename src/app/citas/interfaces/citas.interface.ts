@@ -7,5 +7,5 @@ export interface CitasInterface{
     servicios : string[],
     fecha : string,
     hora : string,
-    comentarios : string
+    comentarios? : string
 }

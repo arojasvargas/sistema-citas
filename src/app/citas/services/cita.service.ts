@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, shareReplay } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { CitasResponse } from '../interfaces/citas-response';
 import { CitasInterface } from '../interfaces/citas.interface';
 
 @Injectable({
@@ -8,14 +10,15 @@ import { CitasInterface } from '../interfaces/citas.interface';
 })
 export class CitaService {
 
-  private baseUrl : string = 'https://sistema-citas-api.azurewebsites.net/api'
-  //Nota: Puede que la data de esta API no esté disponible al momento de accesarla porque está hosteada usando un plan Free en Azure y da un limite diario de uptime
-  //Enlace al repositorio de la API https://github.com/arojasvargas/sistema-citas-api
+  private readonly API = environment.API
+  
+  constructor(private readonly http : HttpClient) { }
 
-  constructor(private http : HttpClient) { }
-
-  getAll() : Observable<CitasInterface[]> {
-    const url = `${this.baseUrl}/obtener-citas`
-    return this.http.get<CitasInterface[]>(url)
+  findAll() : Observable<CitasInterface[]> {
+    return this.http.get<CitasResponse>(`${this.API}/obtener-citas`).pipe(
+            // map<CitasResponse, CitasInterface[]>(res => res.results),
+            tap(console.log)
+    )
   }
 }
+

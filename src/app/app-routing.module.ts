@@ -1,22 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { CitasComponent } from './citas/citas/citas.component';
-import { CitasListadoComponent } from './citas/citas-listado/citas-listado.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 const routes : Routes = [
-  { path: '', component: DashboardComponent},
-  { path: 'registrarcita', component: CitasComponent },
-  { path: 'listadocitas', component: CitasListadoComponent },
-  { path: '**', component: NotFoundComponent}
+  { path: 'dashboard', loadChildren: ()=> import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
+  { path: 'citas', loadChildren: ()=> import('./citas/citas.module').then(m => m.CitasModule) },
+  { path: 'ajustes', loadChildren: ()=> import('./ajustes/ajustes.module').then(m => m.AjustesModule) },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forRoot(routes) ],
-  declarations: [CitasListadoComponent],
-  exports: [RouterModule]
+  declarations: [],
+  imports: [
+    BrowserModule,
+    CommonModule, 
+    RouterModule.forRoot(routes), 
+    FormsModule, 
+    ReactiveFormsModule 
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 
 export class AppRoutingModule { }

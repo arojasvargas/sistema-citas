@@ -1,0 +1,27 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">{{ title }}</h1>
+  </div>
+  
+  <div class="container">
+    <form (ngSubmit)="onSubmit()" [formGroup]="serviciosForm">
+    <!-- <form> -->
+      <!-- Cellphone input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="txtNombre">Nombre del servicio</label>
+        <input type="text" name="nombre" id="txtNombre" class="form-control" required formControlName="nombre"/>
+        <p *ngIf="serviciosForm.get('nombre')?.touched && serviciosForm.get('nombre')?.errors?.['required']" class="alert alert-danger mt-1" role="alert" >
+        Este campo es obligatorio
+        </p>
+      </div>
+    
+      <!-- Number input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="txtDescripcion">Descripción</label>
+        <textarea name="descripcion" id="txtDescripcion" class="form-control" required rows="3" formControlName="descripcion"></textarea>
+      </div>
+    
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="serviciosForm.invalid">Agregar nuevo Servicio</button>
+    </form>
+  </div>
+  

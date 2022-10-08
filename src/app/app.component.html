@@ -40,8 +40,8 @@
                 </a>
                 <div class='bg-white py-2 collapse-inner rounded'>
                     <h6 class="collapse-header">Componentes:</h6>
-                    <a class="collapse-item" routerLink="/registrarcita">Registrar nueva cita</a>
-                    <a class="collapse-item" routerLink="/listadocitas">Ver registro de citas</a>
+                    <a class="collapse-item" routerLink="citas/registrarcita" routerLinkActive="active-link">Registrar nueva cita</a>
+                    <a class="collapse-item" routerLink="citas/listadocitas" routerLinkActive="active-link">Ver registro de citas</a>
                 </div>
             </li>
 
@@ -54,8 +54,10 @@
                 </a>
                 <div class='bg-white py-2 collapse-inner rounded'>
                     <h6 class="collapse-header">Componentes:</h6>
-                    <a class="collapse-item" routerLink="#">Ajustar servicios</a>
-                    <a class="collapse-item" routerLink="#">Ajustar barberos</a>
+                    <a class="collapse-item" routerLink="ajustes/registrarservicio" routerLinkActive="active-link">Agregar servicios</a>
+                    <a class="collapse-item" routerLink="ajustes/listaservicios" routerLinkActive="active-link">Ver lista de servicios</a>
+                    <a class="collapse-item" routerLink="ajustes/registrarbarbero" routerLinkActive="active-link">Agregar barberos</a>
+                    <a class="collapse-item" routerLink="ajustes/listabarberos" routerLinkActive="active-link">Ver lista de barberos</a>
                 </div>
             </li>
 
@@ -99,14 +101,9 @@
 
               <!-- Begin Page Content -->
               <div class="container-fluid">
-
-                  <!-- Page Heading -->
-                  <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                      <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                  </div> -->
                   <router-outlet></router-outlet>
               </div>
-              <!-- /.container-fluid -->
+              
 
           </div>
           <!-- End of Main Content -->

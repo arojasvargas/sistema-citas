@@ -1,0 +1,63 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">{{ title }}</h1>
+  </div>
+  
+  <div class="container">
+    <form (ngSubmit)="onSubmit()" [formGroup]="barberosForm">
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+      <div class="row mb-4">
+        <div class="col">
+          <div class="form-outline">
+              <label class="form-label" for="txtNombre">Nombre</label>
+              <input type="text" name="nombre" id="txtNombre" class="form-control" required formControlName="nombre"/>
+              <p *ngIf="barberosForm.get('nombre')?.touched && barberosForm.get('nombre')?.errors?.['required']" class="alert alert-danger mt-1" role="alert" >
+                Este campo es obligatorio
+                </p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-outline">
+              <label class="form-label" for="txtApellidos">Apellidos</label>
+            <input type="text" name="apellidos" id="txtApellidos" class="form-control" required formControlName="apellidos"/>
+          </div>
+          <p *ngIf="barberosForm.get('apellidos')?.touched && barberosForm.get('apellidos')?.errors?.['required']" class="alert alert-danger mt-1" role="alert" >
+            Este campo es obligatorio
+            </p>
+        </div>
+      </div>
+
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="txtEmail">Correo electrónico</label>
+        <input type="email" name="correo" id="txtEmail" class="form-control"  required formControlName="email"/>
+        <p *ngIf="barberosForm.get('email')?.touched && barberosForm.get('email')?.errors?.['required']" class="alert alert-danger mt-1" role="alert" >
+          Este campo es obligatorio
+        </p>
+        <p *ngIf="barberosForm.get('email')?.touched && barberosForm.get('email')?.invalid" class="alert alert-danger mt-1" role="alert" >
+          Formato de correo invalido
+        </p>
+      </div>
+
+      <!-- Cellphone input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="txtTelefono">Número telefónico</label>
+        <input type="text" name="telefono" id="txtTelefono" class="form-control" required formControlName="telefono"/>
+        <p *ngIf="barberosForm.get('telefono')?.touched && barberosForm.get('telefono')?.errors?.['required']" class="alert alert-danger mt-1" role="alert" >
+          Este campo es obligatorio
+          </p>
+      </div>
+    
+      <!-- Number input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="txtTelefono">Edad</label>
+        <input type="text" name="edad" id="txtEdad" class="form-control" required formControlName="edad"/>
+        <p *ngIf="barberosForm.get('edad')?.touched && barberosForm.get('edad')?.errors?.['required']" class="alert alert-danger mt-1" role="alert" >
+          Este campo es obligatorio
+          </p>
+      </div>
+    
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="barberosForm.invalid">Agregar nuevo Barbero</button>
+    </form>
+  </div>
+  

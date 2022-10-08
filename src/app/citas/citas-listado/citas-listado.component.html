@@ -1,8 +1,4 @@
 
-<!-- <h3>
-  {{ title }}
-</h3> -->
-
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">{{ title }}</h1>
 </div>
@@ -27,7 +23,7 @@
         <td>{{ item.telefono }}</td>
         <td>{{ item.barbero }}</td>
         <td>{{ item.servicios }}</td>
-        <td>{{ item.fecha }}</td>
+        <td>{{ item.fecha | date:'dd-MMMM-YYYY' }}</td>
         <td>{{ item.hora }}</td>
       </tr>
     </tbody>
