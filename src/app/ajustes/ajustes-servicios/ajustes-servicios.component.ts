@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ServiciosAjustesService } from '../services/servicios-ajustes.service';
 
 @Component({
   selector: 'app-ajustes-servicios',
@@ -10,13 +11,13 @@ export class AjustesServiciosComponent implements OnInit {
 
   serviciosForm! : FormGroup
 
-  constructor(private readonly formBuilder : FormBuilder) { }
+  constructor(private readonly formBuilder : FormBuilder,
+              private serviciosAjustesService :  ServiciosAjustesService) { }
 
   title : string = "Formulario para registro de servicios"
 
   ngOnInit(): void {
     this.serviciosForm = this.initForm()
-    // this.onPatchValue()
   }
 
   initForm() : FormGroup{
@@ -26,14 +27,13 @@ export class AjustesServiciosComponent implements OnInit {
     })
   }
 
-  // onPatchValue(){
-  //   this.serviciosForm.patchValue({
-  //     nombre : 'Corte'
-  //   })
-  // }
-
   onSubmit(){
-    console.log(this.serviciosForm.value)
+    var formData : any = new FormData();
+    formData.append("nombre", this.serviciosForm.get('nombre').value)
+    formData.append("descripcion", this.serviciosForm.get('descripcion').value)
+    this.serviciosAjustesService.create(formData).subscribe(
+      (res) => console.log(res)
+    )
   }
 
 }
