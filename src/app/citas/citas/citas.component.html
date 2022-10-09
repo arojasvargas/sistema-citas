@@ -38,9 +38,9 @@
         <div class="form-outline mb-4">
           <label class="form-label" for="selectBarbero">Seleccione un barbero:</label>
           <!-- <select class="form-select" name="Barbero" id="selectBarbero" aria-label="Default select example" [(ngModel)]="cita.barbero"> -->
-          <select *ngFor="let item of listaBarberos" class="form-select" name="Barbero" id="selectBarbero" aria-label="Default select example">
-            <option [defaultSelected]="true" [disabled]="true">Abra este menú</option>
-            <option [value]="concatenar(item.nombre, item.apellidos)">{{ item.nombre }} {{item.apellidos}}</option>
+          <select class="form-select" name="Barbero" id="selectBarbero" aria-label="Default select example">
+            <option [defaultSelected]="true" [disabled]="true">Lista de barberos</option>
+            <option *ngFor="let item of listaBarberos" [value]="concatenar(item.nombre, item.apellidos)">{{ item.nombre }} {{item.apellidos}}</option>
           </select>
         </div>
 

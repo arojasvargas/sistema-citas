@@ -3,6 +3,10 @@
   </div>
   
   <div class="container">
+    <div *ngIf="alerta" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Success!</strong> Barbero registrado con exito.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     <form (ngSubmit)="onSubmit()" [formGroup]="barberosForm">
       <!-- 2 column grid layout with text inputs for the first and last names -->
       <div class="row mb-4">

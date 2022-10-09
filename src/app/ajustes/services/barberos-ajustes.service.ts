@@ -26,4 +26,16 @@ export class BarberosAjustesService {
       tap(console.log)
     )
   }
+
+  create(barbero : BarberosInterface) : Observable<BarberosInterface>{
+    const body = {
+      nombre : barbero.nombre,
+      apellidos : barbero.apellidos,
+      email : barbero.email,
+      telefono : barbero.telefono,
+      edad : barbero.edad
+    }
+    return this.http.post<BarberosInterface>(`${this.API}/registrar-barbero`, body)
+  }
+
 }

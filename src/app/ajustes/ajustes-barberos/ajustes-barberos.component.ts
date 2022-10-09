@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BarberosInterface } from '../interfaces/barberos.interface';
+import { BarberosAjustesService } from '../services/barberos-ajustes.service';
 
 @Component({
   selector: 'app-ajustes-barberos',
@@ -11,9 +12,12 @@ export class AjustesBarberosComponent implements OnInit {
 
   barberosForm! : FormGroup
 
-  constructor(private readonly formBuilder : FormBuilder) { }
-
   title : string = "Formulario para registro de barberos"
+
+  alerta : boolean = false
+
+  constructor(private readonly formBuilder : FormBuilder,
+              private barberosAjustesService : BarberosAjustesService) { }
 
   ngOnInit(): void {
     this.barberosForm = this.initForm()
@@ -29,6 +33,11 @@ export class AjustesBarberosComponent implements OnInit {
     })
   }
   onSubmit(){
-    console.log(this.barberosForm.value)
+    this.barberosAjustesService.create(this.barberosForm.value).subscribe(
+      (res) => {
+        console.log(res)
+        this.alerta = true
+        this.barberosForm.reset()
+      })
   }
 }

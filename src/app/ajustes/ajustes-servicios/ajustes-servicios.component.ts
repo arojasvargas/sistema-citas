@@ -11,10 +11,12 @@ export class AjustesServiciosComponent implements OnInit {
 
   serviciosForm! : FormGroup
 
+  title : string = "Formulario para registro de servicios"
+
+  alerta : boolean = false
+
   constructor(private readonly formBuilder : FormBuilder,
               private serviciosAjustesService :  ServiciosAjustesService) { }
-
-  title : string = "Formulario para registro de servicios"
 
   ngOnInit(): void {
     this.serviciosForm = this.initForm()
@@ -28,12 +30,12 @@ export class AjustesServiciosComponent implements OnInit {
   }
 
   onSubmit(){
-    var formData : any = new FormData();
-    formData.append("nombre", this.serviciosForm.get('nombre').value)
-    formData.append("descripcion", this.serviciosForm.get('descripcion').value)
-    this.serviciosAjustesService.create(formData).subscribe(
-      (res) => console.log(res)
-    )
+    this.serviciosAjustesService.create(this.serviciosForm.value).subscribe(
+      (res) => {
+        console.log(res)
+        this.alerta = true
+        this.serviciosForm.reset()
+      })
   }
 
 }
