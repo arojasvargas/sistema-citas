@@ -10,9 +10,7 @@ import { ServiciosAjustesService } from '../services/servicios-ajustes.service';
 export class AjustesServiciosComponent implements OnInit {
 
   serviciosForm! : FormGroup
-
   title : string = "Formulario para registro de servicios"
-
   alerta : boolean = false
 
   constructor(private readonly formBuilder : FormBuilder,

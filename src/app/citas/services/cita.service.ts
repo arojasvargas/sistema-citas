@@ -20,5 +20,20 @@ export class CitaService {
             tap(console.log)
     )
   }
+
+  create(cita : CitasInterface) : Observable<CitasInterface>{
+    const body = {
+      telefono : cita.telefono,
+      nombre : cita.nombre,
+      apellidos : cita.apellidos,
+      email : cita.email,
+      barbero : cita.barbero,
+      servicios : cita.servicios,
+      fecha : cita.fecha,
+      hora : cita.hora,
+      comentarios : cita.comentarios
+    }
+    return this.http.post<CitasInterface>(`${this.API}/registrar-cita`, body)
+  }
 }
 

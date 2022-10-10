@@ -10,6 +10,7 @@
           <th scope="col">#</th>
           <th scope="col">Nombre</th>
           <th scope="col">Descripcion</th>
+          <th scope="col" class="d-flex justify-content-center">Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -17,6 +18,11 @@
           <td>{{i}}</td>
           <td>{{ item.nombre }}</td>
           <td>{{ item.descripcion }}</td>
+          <td class="d-flex justify-content-center">
+            <button type="button" class="btn btn-danger" (click)="deleteRow(item._id)">
+              <i class="fas fa-solid fa-trash"></i>
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>

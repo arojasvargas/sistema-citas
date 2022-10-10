@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BarberosInterface } from '../interfaces/barberos.interface';
 import { BarberosAjustesService } from '../services/barberos-ajustes.service';
 
 @Component({
@@ -11,9 +10,7 @@ import { BarberosAjustesService } from '../services/barberos-ajustes.service';
 export class AjustesBarberosComponent implements OnInit {
 
   barberosForm! : FormGroup
-
   title : string = "Formulario para registro de barberos"
-
   alerta : boolean = false
 
   constructor(private readonly formBuilder : FormBuilder,

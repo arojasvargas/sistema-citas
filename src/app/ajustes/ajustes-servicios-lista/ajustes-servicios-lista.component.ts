@@ -18,4 +18,11 @@ export class AjustesServiciosListaComponent implements OnInit {
     this.serviciosAjustesService.findAll().subscribe( data => this.listaServicios = data )
   }
 
+  deleteRow(id : string){
+    this.serviciosAjustesService.delete(id).subscribe(
+      (res) => {
+        console.log(res)
+      })
+  }
+
 }

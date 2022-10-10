@@ -3,42 +3,39 @@
 </div>
 
 <div class="container">
-      <!-- <form (ngSubmit)="agregarCita()"> -->
-      <form>
+      <form (ngSubmit)="onSubmit()" [formGroup]="citasForm">
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
                 <label class="form-label" for="txtNombre">Nombre</label>
-                <input type="text" name="Nombre" id="txtNombre" class="form-control"/>
+                <input type="text" name="Nombre" id="txtNombre" class="form-control" required formControlName="nombre"/>
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
                 <label class="form-label" for="txtApellidos">Apellidos</label>
-              <input type="text" name="Apellidos" id="txtApellidos" class="form-control" />
+              <input type="text" name="Apellidos" id="txtApellidos" class="form-control" required formControlName="apellidos"/>
             </div>
           </div>
         </div>
 
         <!-- Email input -->
         <div class="form-outline mb-4">
-            
           <label class="form-label" for="txtEmail">Correo electrónico</label>
-          <input type="email" name="Correo" id="txtEmail" class="form-control"/>
+          <input type="email" name="Correo" id="txtEmail" class="form-control" required formControlName="email"/>
         </div>
       
         <!-- Number input -->
         <div class="form-outline mb-4">
           <label class="form-label" for="txtTelefono">Número de teléfono</label>
-          <input type="text" name="Telefono" id="txtTelefono" class="form-control" />
+          <input type="text" name="Telefono" id="txtTelefono" class="form-control" required formControlName="telefono"/>
         </div>
 
         <!-- Select Barbero -->
         <div class="form-outline mb-4">
           <label class="form-label" for="selectBarbero">Seleccione un barbero:</label>
-          <!-- <select class="form-select" name="Barbero" id="selectBarbero" aria-label="Default select example" [(ngModel)]="cita.barbero"> -->
-          <select class="form-select" name="Barbero" id="selectBarbero" aria-label="Default select example">
+          <select class="form-select" name="Barbero" id="selectBarbero" aria-label="Default select example" required formControlName="barbero">
             <option [defaultSelected]="true" [disabled]="true">Lista de barberos</option>
             <option *ngFor="let item of listaBarberos" [value]="concatenar(item.nombre, item.apellidos)">{{ item.nombre }} {{item.apellidos}}</option>
           </select>
@@ -49,32 +46,40 @@
           <label class="form-label" for="selectServicio">Seleccione uno o más servicios:</label>
           <ul class="list-group" id="selectServicio">
             <li class="list-group-item" *ngFor="let item of listaServicios; let i=index">
-              <input class="form-check-input" type="checkbox" [value]="item.nombre" [id]="i">
-              <label class="form-check-label" for="i">{{item.nombre}}</label>
+              <input class="form-check-input ms-1" type="checkbox" [value]="item.nombre" [id]="i" required formArrayName="servicios" (change)="onCheckboxChange($event)">
+              <label class="form-check-label ms-4" for="i">{{item.nombre}}</label>
             </li>
           </ul>
         </div>
       
-        <!-- Fecha input -->
+        <!-- Fecha & Hora input -->
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
               <label class="form-label" for="txtFecha">Fecha</label>
-              <input type="date" name="Fecha" id="txtFecha" class="form-control" />
+              <input type="date" name="Fecha" id="txtFecha" class="form-control" required formControlName="fecha"/>
             </div>
           </div>
           <div class="col">
+            <label class="form-label" for="selectBarbero">Hora:</label>
+            <select class="form-select" name="Hora" id="selectHora" required formControlName="hora">
+              <option [defaultSelected]="true" [disabled]="true">Horario 9AM - 7PM</option>
+              <option *ngFor="let item of listaHoras" [value]="item">{{ item }}</option>
+            </select>
+          </div>
+
+          <!-- <div class="col">
             <div class="form-outline">
               <label class="form-label" for="txtHora">Hora</label>
-              <input type="time" name="Hora" id="txtHora" class="form-control" />
+              <input type="time" name="Hora" id="txtHora" class="form-control" step="3600" required formControlName="hora"/>
             </div>
-          </div>
+          </div> -->
         </div>    
               
         <!-- Message input -->
         <div class="form-outline mb-4">
           <label class="form-label" for="txtComentarios">Comentarios adicionales</label>
-          <textarea class="form-control" name="Comentarios" id="txtComentarios" rows="4" ></textarea>
+          <textarea class="form-control" name="Comentarios" id="txtComentarios" rows="4" formControlName="comentarios"></textarea>
         </div>
       
         <!-- Submit button -->
