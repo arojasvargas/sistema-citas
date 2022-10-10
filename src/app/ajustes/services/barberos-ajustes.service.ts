@@ -38,4 +38,8 @@ export class BarberosAjustesService {
     return this.http.post<BarberosInterface>(`${this.API}/registrar-barbero`, body)
   }
 
+  delete(id : string) : Observable<void>{
+    return this.http.delete<void>(`${this.API}/eliminar-barbero/${id}`)
+  }
+
 }

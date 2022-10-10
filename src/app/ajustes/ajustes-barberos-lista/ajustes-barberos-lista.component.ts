@@ -11,11 +11,21 @@ export class AjustesBarberosListaComponent implements OnInit {
 
   title : string = "Listado de barberos"
   listaBarberos : BarberosInterface[] = []
+  alerta : boolean = false
   
   constructor(private readonly barberosAjustesService :  BarberosAjustesService) { }
 
   ngOnInit(): void {
     this.barberosAjustesService.findAll().subscribe( data => this.listaBarberos = data )
+  }
+
+  deleteRow(id : string){
+    this.barberosAjustesService.delete(id).subscribe(
+      (res) => {
+        console.log(res)
+        this.alerta = true
+        this.ngOnInit()
+      })
   }
 
 }

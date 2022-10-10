@@ -11,11 +11,21 @@ export class CitasListadoComponent implements OnInit {
 
   nuevaListaCitas : CitasInterface[] = []
   title : string = "Listado de citas"
+  alerta : boolean = false
 
   constructor( private citasService : CitaService ){  }
   
    ngOnInit(): void {
     this.citasService.findAll().subscribe( data => this.nuevaListaCitas = data )
+  }
+
+  deleteRow(id : string){
+    this.citasService.delete(id).subscribe(
+      (res) => {
+        console.log(res)
+        this.alerta = true
+        this.ngOnInit()
+      })
   }
   
 }

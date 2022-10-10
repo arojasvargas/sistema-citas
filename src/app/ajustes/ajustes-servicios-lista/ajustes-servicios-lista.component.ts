@@ -11,6 +11,7 @@ export class AjustesServiciosListaComponent implements OnInit {
 
   title : string = "Listado de servicios"
   listaServicios : ServiciosInterface[] = []
+  alerta : boolean = false
 
   constructor(private serviciosAjustesService :  ServiciosAjustesService) { }
 
@@ -22,6 +23,8 @@ export class AjustesServiciosListaComponent implements OnInit {
     this.serviciosAjustesService.delete(id).subscribe(
       (res) => {
         console.log(res)
+        this.alerta = true
+        this.ngOnInit()
       })
   }
 

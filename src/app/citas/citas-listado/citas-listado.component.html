@@ -4,6 +4,12 @@
 </div>
 
 <div class="container">
+
+  <div *ngIf="alerta" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success!</strong> Servicio eliminado con exito.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
   <table class="table table-striped">
     <thead>
       <tr>
@@ -14,6 +20,7 @@
         <th scope="col">Servicios</th>
         <th scope="col">Fecha</th>
         <th scope="col">Hora</th>
+        <th scope="col" class="d-flex justify-content-center">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -25,6 +32,11 @@
         <td>{{ item.servicios }}</td>
         <td>{{ item.fecha | date:'dd-MMMM-YYYY':'+0000' }}</td>
         <td>{{ item.hora }}</td>
+        <td class="d-flex justify-content-center">
+          <button type="button" class="btn btn-danger" (click)="deleteRow(item._id)">
+            <i class="fas fa-solid fa-trash"></i>
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>

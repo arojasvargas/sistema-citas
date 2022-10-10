@@ -35,5 +35,9 @@ export class CitaService {
     }
     return this.http.post<CitasInterface>(`${this.API}/registrar-cita`, body)
   }
+
+  delete(id : string) : Observable<void>{
+    return this.http.delete<void>(`${this.API}/eliminar-cita/${id}`)
+  }
 }
 
