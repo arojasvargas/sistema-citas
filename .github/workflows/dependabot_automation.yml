@@ -1,0 +1,19 @@
+name: Auto-Merge Dependabot PRs
+
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if PR is from Dependabot
+        id: dependabot_check
+        run: echo "::set-output name=is_dependabot::${{ github.actor == 'dependabot[bot]' }}"
+
+      - name: Merge PR
+        if: steps.dependabot_check.outputs.is_dependabot == 'true' && github.event.pull_request.mergeable == 'true' && github.event.pull_request.mergeable_state == 'clean'
+        run: gh pr merge ${{ github.event.pull_request.number }} --auto
